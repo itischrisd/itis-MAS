@@ -1,3 +1,5 @@
+package zad5;
+
 import java.util.Random;
 
 public class RandomRangeGenerator {

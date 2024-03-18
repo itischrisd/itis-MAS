@@ -1,3 +1,5 @@
+package zad6;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,26 +14,6 @@ public class UniformPrism {
         this.sidesCount = sidesCount;
         this.sideLength = sideLength;
         this.height = height;
-    }
-
-    public double volume() {
-        return sidesCount * Math.pow(sideLength, 2) * height / (4 * Math.tan(Math.PI / sidesCount));
-    }
-
-    public double sideSurfaceArea() {
-        return sidesCount * sideLength * height;
-    }
-
-    public double surfaceArea() {
-        return sidesCount * Math.pow(sideLength, 2) / (2 * Math.tan(Math.PI / sidesCount)) + sideSurfaceArea();
-    }
-
-    @Override
-    public String toString() {
-        return "UniformPrism with " + sidesCount + " sides of length " + sideLength + " and height " + height + " has:\n" +
-                "Volume: " + volume() + "\n" +
-                "Surface area: " + surfaceArea() + "\n" +
-                "Side surface area: " + sideSurfaceArea();
     }
 
     public static void main(String[] args) {
@@ -49,5 +31,25 @@ public class UniformPrism {
         for (UniformPrism prism : prisms) {
             System.out.println(prism);
         }
+    }
+
+    public double volume() {
+        return sidesCount * Math.pow(sideLength, 2) * height / (4 * Math.tan(Math.PI / sidesCount));
+    }
+
+    public double sideSurfaceArea() {
+        return sidesCount * sideLength * height;
+    }
+
+    public double surfaceArea() {
+        return sidesCount * Math.pow(sideLength, 2) / (2 * Math.tan(Math.PI / sidesCount)) + sideSurfaceArea();
+    }
+
+    @Override
+    public String toString() {
+        return "UniformPrism with " + sidesCount + " sides of length " + sideLength + " and height " + height + " has:\n"
+                + "Volume: " + volume() + "\n"
+                + "Surface area: " + surfaceArea() + "\n"
+                + "Side surface area: " + sideSurfaceArea();
     }
 }
