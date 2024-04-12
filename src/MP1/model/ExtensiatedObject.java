@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ExtensiatedObject implements Serializable {
 
@@ -27,12 +24,14 @@ public class ExtensiatedObject implements Serializable {
         out.writeObject(extents);
     }
 
+    @SuppressWarnings("unchecked")
     public static void readExtents(ObjectInputStream in) throws IOException, ClassNotFoundException {
         extents = (Map<Class<? extends ExtensiatedObject>, List<ExtensiatedObject>>) in.readObject();
     }
 
-    public static <T> Iterable<T> getExtent(Class<T> type) throws ClassNotFoundException {
-        if (extents.containsKey(type)) {
+    @SuppressWarnings("unchecked")
+    protected static <T> Iterable<T> getExtent(Class<T> type) throws ClassNotFoundException {
+        if (extents.containsKey(type) && type.isAssignableFrom(ExtensiatedObject.class)) {
             return (Iterable<T>) extents.get(type);
         }
         throw new ClassNotFoundException(String.format("%s not found. Stored extents: %s", type.getName(), extents.keySet()));
@@ -41,7 +40,7 @@ public class ExtensiatedObject implements Serializable {
     public static void showExtent(Class<? extends ExtensiatedObject> type) throws Exception {
         List<ExtensiatedObject> extent;
 
-        if(extents.containsKey(type)) {
+        if (extents.containsKey(type)) {
             extent = extents.get(type);
         } else {
             throw new ClassNotFoundException(String.format("%s not found. Stored extents: %s", type.getName(), extents.keySet()));
@@ -49,7 +48,7 @@ public class ExtensiatedObject implements Serializable {
 
         System.out.println("Extent of the class: " + type.getSimpleName());
 
-        for(Object obj : extent) {
+        for (Object obj : extent) {
             System.out.println(obj);
         }
     }
