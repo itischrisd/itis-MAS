@@ -2,10 +2,10 @@
   <div>
     <img width="80" src="https://raw.githubusercontent.com/itischrisd/itis-PJATK/main/logo.svg" alt="" />
   </div>
-  MAS (Modeling and analysis of information systems)
+  MAS (Modeling and Analysis of Information Systems)
 </h1>
 
-Repository that contains implementation of the mini-projects and solutions to the exercises for the MAS (Modeling and analysis of information systems) practical classes, taught by Emil Wcisło during studies on [PJAIT](https://www.pja.edu.pl/en/), as well as some additional implementations for the lecture assignments.
+Repository that contains implementation of the mini-projects and solutions to the exercises for the MAS (Modeling and Analysis of Information Systems) practical classes, taught by Emil Wcisło during studies on [PJAIT](https://www.pja.edu.pl/en/), as well as some additional implementations for the lecture assignments.
 
 The following code is distributed under the [GPLv3](./LICENSE).
 
